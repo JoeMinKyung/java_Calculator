@@ -15,5 +15,23 @@ public class Calculator {
         // 사칙연산 기호를 입력 받기
         System.out.print("사칙연산 기호를 입력하세요: ");
         char operator = sc.next().charAt(0);
+
+        // 연산 수행하기
+        int result = 0; // 연산 결과 값 저장 변수
+        switch (operator){
+            case '+': result = firstNum + secondNum;
+            break;
+            case '-': result = firstNum - secondNum;
+            break;
+            case '*': result = firstNum * secondNum;
+            break;
+            case '/': result = firstNum / secondNum;
+            break;
+            default:
+                System.out.println("잘못된 사칙연산 기호입니다.");
+        }
+
+        // 연산 결과 출력하기
+        System.out.println("결과: " + result);
     }
 }
