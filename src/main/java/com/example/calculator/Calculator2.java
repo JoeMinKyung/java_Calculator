@@ -58,4 +58,9 @@ public class Calculator2 {
             System.out.println((i + 1) + ". " + results.get(i));
         }
     }
+    
+    // 가장 먼저 저장된 연산 결과 삭제
+    public void deleteResult() {
+        results.remove(0);
+    }
 }
