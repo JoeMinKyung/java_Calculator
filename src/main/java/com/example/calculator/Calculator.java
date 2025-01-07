@@ -7,9 +7,7 @@ public class Calculator {
         Scanner sc = new Scanner(System.in);
 
         // 반복문 실행
-        boolean flag = true; // while 문 조건 flag
-
-        while (flag) {
+        while (true) {
             int firstNum, secondNum;
 
             // 첫번째 숫자 입력받기
@@ -99,7 +97,7 @@ public class Calculator {
 
             String continueText = sc.next();
             if (continueText.equals("exit")) {
-                flag = false;
+                break;
             }
         }
     }
