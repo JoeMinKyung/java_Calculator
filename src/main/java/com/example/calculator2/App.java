@@ -20,12 +20,12 @@ public class App {
             // 사칙연산 기호 입력받기
             operator = getOperator(sc);
 
-            // 연산 수행하기
-            int result = calc.calculate(firstNum, secondNum, operator);
-
-            // 연산 결과 출력하기
-            if (result != -1) {
+            // 연산 수행 및 출력하기
+            try {
+                int result = calc.calculate(firstNum, secondNum, operator);
                 System.out.println("결과: " + result);
+            } catch (ArithmeticException | IllegalArgumentException e) {
+                System.out.println("오류: " + e.getMessage());
             }
 
             // 반복 여부 확인하기 (메뉴 출력)

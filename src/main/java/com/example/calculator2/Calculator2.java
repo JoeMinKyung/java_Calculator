@@ -13,7 +13,7 @@ public class Calculator2 {
     }
 
     // 연산 수행
-    public int calculate(int a, int b, char c){
+    public int calculate(int a, int b, char c) {
         int result = 0; // calculate 수행 결과 값 저장
 
         // 연산 수행하기
@@ -29,12 +29,12 @@ public class Calculator2 {
                 break;
             case '/':
                 if (b == 0) {
-                    System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
-                    result = -1;
-                } else {
-                    result = a / b;
+                    throw new ArithmeticException("나눗셈 연산에서 분모가 0입니다.");
                 }
+                result = a / b;
                 break;
+            default:
+                throw new IllegalArgumentException("유효하지 않은 연산자입니다: " + c);
         }
         // 연산 결과를 저장
         addResult(result);
@@ -58,13 +58,12 @@ public class Calculator2 {
             System.out.println((i + 1) + ". " + results.get(i));
         }
     }
-    
+
     // 가장 먼저 저장된 연산 결과 삭제
     public void removeResult() {
-        if(!results.isEmpty()) {
+        if (!results.isEmpty()) {
             results.remove(0);
-        }
-        else{
+        } else {
             System.out.println("삭제할 연산 결과가 없습니다.");
         }
     }
