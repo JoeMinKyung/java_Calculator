@@ -16,14 +16,20 @@ public class Calculator {
             while (true){
                 // 양의 정수(0 포함)를 입력 받기
                 System.out.print("첫 번째 숫자를 입력하세요: ");
-                firstNum = sc.nextInt();
+                String input = sc.next();
 
-                // 양의 정수가 아니라면 continue
-                if (firstNum >= 0){
-                    break;
-                }
-                else {
-                    System.out.println("양의 정수를 입력해주세요.");
+                // 정수 입력 확인
+                try {
+                    firstNum = Integer.parseInt(input); // 문자열을 정수로 변환
+                    // 양의 정수 입력 확인
+                    if (firstNum >= 0){
+                        break; // 양의 정수이면 반복 종료
+                    }
+                    else {
+                        System.out.println("양의 정수를 입력해주세요.");
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("유효한 정수를 입력해주세요.");
                 }
             }
 
@@ -31,14 +37,20 @@ public class Calculator {
             while (true){
                 // 양의 정수(0 포함)를 입력 받기
                 System.out.print("두 번째 숫자를 입력하세요: ");
-                secondNum = sc.nextInt();
+                String input = sc.next();
 
-                // 양의 정수가 아니라면 continue
-                if (secondNum >= 0){
-                    break;
-                }
-                else {
-                    System.out.println("양의 정수를 입력해주세요.");
+                // 정수 입력 확인
+                try {
+                    secondNum = Integer.parseInt(input); // 문자열을 정수로 변환
+                    // 양의 정수 입력 확인
+                    if (secondNum >= 0){
+                        break; // 양의 정수이면 반복 종료
+                    }
+                    else {
+                        System.out.println("양의 정수를 입력해주세요.");
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("유효한 정수를 입력해주세요.");
                 }
             }
 
