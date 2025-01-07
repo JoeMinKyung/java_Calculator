@@ -20,18 +20,8 @@ public class App {
             // 두번째 숫자 입력받기
             secondNum = getPositiveInteger(sc, "두 번째 숫자를 입력하세요: ");
 
-            // 사칙연산 기호 유효성 체크
-            while (true){
-                System.out.print("사칙연산 기호를 입력하세요: ");
-                operator = sc.next().charAt(0);
-
-                if(operator == '+' || operator == '-' || operator == '*' || operator == '/'){
-                    break;
-                }
-                else{
-                    System.out.println("잘못된 사칙연산 기호입니다. 다시 입력해주세요.");
-                }
-            }
+            // 사칙연산 기호 입력받기
+            operator = getOperator(sc);
 
             // 연산 수행하기
             int result = calc.calculate(firstNum, secondNum, operator);
@@ -72,6 +62,22 @@ public class App {
                 }
             } catch (NumberFormatException e) {
                 System.out.println("유효한 정수를 입력해주세요.");
+            }
+        }
+    }
+
+    // 연산자 입력받는 메서드
+    private static char getOperator(Scanner sc) {
+        char operator;
+        while (true){
+            System.out.print("사칙연산 기호를 입력하세요: ");
+            operator = sc.next().charAt(0);
+
+            if(operator == '+' || operator == '-' || operator == '*' || operator == '/'){
+                return operator;
+            }
+            else{
+                System.out.println("잘못된 사칙연산 기호입니다. 다시 입력해주세요.");
             }
         }
     }
