@@ -97,10 +97,7 @@ public class Calculator {
             // 반복 여부 확인하기
             System.out.println("더 계산하시겠습니까? 아무 키나 입력해주세요. (exit 입력 시 종료)");
 
-            // 버퍼 정리
-            sc.nextLine(); // 이전 입력으로 남아 있는 줄바꿈 문자를 제거
-
-            String continueText = sc.nextLine();
+            String continueText = sc.next();
             if (continueText.equals("exit")) {
                 flag = false;
             }
