@@ -1,4 +1,4 @@
-package com.example.calculaotr2;
+package com.example.calculator2;
 
 import java.util.ArrayList;
 
