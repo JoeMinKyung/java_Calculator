@@ -5,12 +5,7 @@ import java.util.ArrayList;
 
 public class Calculator2 {
     // 연산 결과를 저장할 컬렉션 (private으로 캡슐화)
-    private final ArrayList<Integer> results;
-
-    // 생성자
-    public Calculator2() {
-        results = new ArrayList<>();
-    }
+    private final ArrayList<Integer> results = new ArrayList<>();
 
     // 연산 수행
     public int calculate(int a, int b, char c) {
