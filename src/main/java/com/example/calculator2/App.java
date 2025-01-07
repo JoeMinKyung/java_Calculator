@@ -49,12 +49,10 @@ public class App {
                             calc.removeResult();
                             break; // 다시 메뉴로 돌아가기
                         }
-                        else if (input.equals("n")) {
+                        if (input.equals("n")) {
                             break; // 다시 메뉴로 돌아가기
                         }
-                        else {
-                            System.out.println("y 또는 n을 눌러주세요.");
-                        }
+                        System.out.println("y 또는 n을 눌러주세요.");
                     }
                 } else {
                     break;
