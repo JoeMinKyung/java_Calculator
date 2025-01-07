@@ -31,15 +31,41 @@ public class App {
                 System.out.println("결과: " + result);
             }
 
-            // 반복 여부 확인하기
-            System.out.println("더 계산하시겠습니까? 아무 키나 입력해주세요. (exit 입력 시 종료)");
-
             // 버퍼 정리
             sc.nextLine(); // 이전 입력으로 남아 있는 줄바꿈 문자를 제거
 
-            String continueText = sc.nextLine();
-            if (continueText.equals("exit")) {
-                flag = false;
+            // 반복 여부 확인하기 (메뉴 출력)
+            while (true) {
+                System.out.println("연산 결과 조회: 1, 연산 결과 삭제: 2, 더 계산하려면 아무 키나 입력해주세요. (exit 입력 시 종료)");
+
+                String continueText = sc.nextLine();
+
+                if (continueText.equals("exit")) {
+                    flag = false;
+                    break; // exit 입력 시 종료
+                } else if (continueText.equals("1")) {
+                    // 연산 결과 조회
+                    calc.printResults();
+                } else if (continueText.equals("2")) {
+                    // 연산 결과 삭제
+                    while(true){
+                        System.out.println("가장 먼저 저장된 데이터를 삭제합니다. 삭제하시겠습니까? (y, n)");
+                        String input = sc.nextLine();
+
+                        if (input.equals("y")) {
+                            calc.deleteResult();
+                            break; // 다시 메뉴로 돌아가기
+                        }
+                        else if (input.equals("n")) {
+                            break; // 다시 메뉴로 돌아가기
+                        }
+                        else {
+                            System.out.println("y 또는 n을 눌러주세요.");
+                        }
+                    }
+                } else {
+                    break;
+                }
             }
         }
     }
