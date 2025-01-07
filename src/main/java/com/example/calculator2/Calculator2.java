@@ -1,11 +1,11 @@
 package com.example.calculator2;
 
+import java.util.List;
 import java.util.ArrayList;
-
 
 public class Calculator2 {
     // 연산 결과를 저장할 컬렉션 (private으로 캡슐화)
-    private final ArrayList<Integer> results = new ArrayList<>();
+    private final List<Integer> results = new ArrayList<>();
 
     // 연산 수행
     public int calculate(int a, int b, char c) {
@@ -42,7 +42,7 @@ public class Calculator2 {
     }
 
     // 연산 결과를 가져오기 (Getter)
-    public ArrayList<Integer> getResults() {
+    public List<Integer> getResults() {
         return new ArrayList<>(results); // 캡슐화를 위해 복사본 반환
     }
 
