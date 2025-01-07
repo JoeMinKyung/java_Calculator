@@ -28,14 +28,11 @@ public class App {
                 System.out.println("결과: " + result);
             }
 
-            // 버퍼 정리
-            sc.nextLine(); // 이전 입력으로 남아 있는 줄바꿈 문자를 제거
-
             // 반복 여부 확인하기 (메뉴 출력)
             while (true) {
                 System.out.println("연산 결과 조회: 1, 연산 결과 삭제: 2, 더 계산하려면 아무 키나 입력해주세요. (exit 입력 시 종료)");
 
-                String continueText = sc.nextLine();
+                String continueText = sc.next();
 
                 if (continueText.equals("exit")) {
                     return; // 메서드 종료
@@ -46,7 +43,7 @@ public class App {
                     // 연산 결과 삭제
                     while(true){
                         System.out.println("가장 먼저 저장된 데이터를 삭제합니다. 삭제하시겠습니까? (y, n)");
-                        String input = sc.nextLine();
+                        String input = sc.next();
 
                         if (input.equals("y")) {
                             calc.removeResult();
