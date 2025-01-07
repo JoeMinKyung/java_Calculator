@@ -7,10 +7,7 @@ public class App {
         Scanner sc = new Scanner(System.in);
         Calculator2 calc = new Calculator2();
 
-        // 반복문 실행
-        boolean flag = true; // while 문 조건 flag
-
-        while (flag) {
+        while (true) {
             int firstNum, secondNum;
             char operator;
 
@@ -41,8 +38,7 @@ public class App {
                 String continueText = sc.nextLine();
 
                 if (continueText.equals("exit")) {
-                    flag = false;
-                    break; // exit 입력 시 종료
+                    return; // 메서드 종료
                 } else if (continueText.equals("1")) {
                     // 연산 결과 조회
                     calc.printResults();
