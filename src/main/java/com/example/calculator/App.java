@@ -12,49 +12,15 @@ public class App {
 
         while (flag) {
             int firstNum, secondNum;
+            char operator;
 
             // 첫번째 숫자 입력받기
-            while (true) {
-                // 양의 정수(0 포함)를 입력 받기
-                System.out.print("첫 번째 숫자를 입력하세요: ");
-                String input = sc.next();
-
-                // 정수 입력 확인
-                try {
-                    firstNum = Integer.parseInt(input); // 문자열을 정수로 변환
-                    // 양의 정수 입력 확인
-                    if (firstNum >= 0) {
-                        break; // 양의 정수이면 반복 종료
-                    } else {
-                        System.out.println("양의 정수를 입력해주세요.");
-                    }
-                } catch (NumberFormatException e) {
-                    System.out.println("유효한 정수를 입력해주세요.");
-                }
-            }
+            firstNum = getPositiveInteger(sc, "첫 번째 숫자를 입력하세요: ");
 
             // 두번째 숫자 입력받기
-            while (true) {
-                // 양의 정수(0 포함)를 입력 받기
-                System.out.print("두 번째 숫자를 입력하세요: ");
-                String input = sc.next();
-
-                // 정수 입력 확인
-                try {
-                    secondNum = Integer.parseInt(input); // 문자열을 정수로 변환
-                    // 양의 정수 입력 확인
-                    if (secondNum >= 0) {
-                        break; // 양의 정수이면 반복 종료
-                    } else {
-                        System.out.println("양의 정수를 입력해주세요.");
-                    }
-                } catch (NumberFormatException e) {
-                    System.out.println("유효한 정수를 입력해주세요.");
-                }
-            }
+            secondNum = getPositiveInteger(sc, "두 번째 숫자를 입력하세요: ");
 
             // 사칙연산 기호 유효성 체크
-            char operator;
             while (true){
                 System.out.print("사칙연산 기호를 입력하세요: ");
                 operator = sc.next().charAt(0);
@@ -84,6 +50,28 @@ public class App {
             String continueText = sc.nextLine();
             if (continueText.equals("exit")) {
                 flag = false;
+            }
+        }
+    }
+
+    // 양의 정수 입력받는 메서드
+    private static int getPositiveInteger(Scanner sc, String prompt) {
+        int number;
+        while (true) {
+            System.out.print(prompt);
+            String input = sc.next();
+
+            // 정수 입력 확인
+            try {
+                number = Integer.parseInt(input); // 문자열을 정수로 변환
+                // 양의 정수 입력 확인
+                if (number >= 0) {
+                    return number; // 양의 정수이면 반복 종료
+                } else {
+                    System.out.println("0 이상의 정수를 입력해주세요.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("유효한 정수를 입력해주세요.");
             }
         }
     }
