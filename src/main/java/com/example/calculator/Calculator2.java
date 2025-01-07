@@ -60,7 +60,12 @@ public class Calculator2 {
     }
     
     // 가장 먼저 저장된 연산 결과 삭제
-    public void deleteResult() {
-        results.remove(0);
+    public void removeResult() {
+        if(!results.isEmpty()) {
+            results.remove(0);
+        }
+        else{
+            System.out.println("삭제할 연산 결과가 없습니다.");
+        }
     }
 }

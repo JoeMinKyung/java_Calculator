@@ -53,7 +53,7 @@ public class App {
                         String input = sc.nextLine();
 
                         if (input.equals("y")) {
-                            calc.deleteResult();
+                            calc.removeResult();
                             break; // 다시 메뉴로 돌아가기
                         }
                         else if (input.equals("n")) {
