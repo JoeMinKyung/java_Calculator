@@ -1,12 +1,21 @@
 package com.example.calculator;
 
+import java.util.ArrayList;
+
+
 public class Calculator2 {
-    int result; // calculate 수행 결과 값 저장
+    // 연산 결과를 저장할 컬렉션
+    private final ArrayList<Integer> results;
+
+    // 생성자
+    public Calculator2() {
+        results = new ArrayList<>();
+    }
 
     public int calculate(int a, int b, char c){
-        // 연산 수행하기
-        boolean validOperation = true; // 사칙 연산 수행 실패 시 결과를 출력하지 않도록 설정하는 변수
+        int result = 0; // calculate 수행 결과 값 저장
 
+        // 연산 수행하기
         switch (c) {
             case '+':
                 result = a + b;
@@ -26,6 +35,8 @@ public class Calculator2 {
                 }
                 break;
         }
+        // 연산 결과를 저장
+        results.add(result);
         return result;
     }
 }
