@@ -2,32 +2,32 @@ package com.example.calculator3;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
-public class ArithmeticCalculator<T extends Number> {  // T는 Number의 자식 클래스여야 한다.
-    // 연산 결과를 저장할 컬렉션 (private으로 캡슐화)
-    private final List<T> results = new ArrayList<>();
+public class ArithmeticCalculator {
+    private final List<Double> results = new ArrayList<>();
 
     // 연산 수행
-    public T calculate(T a, T b, Calculator3.OperatorType operatorType) {
-        T result = operatorType.apply(a, b);  // 제네릭 타입으로 연산
-        // 연산 결과를 저장
+    public <T extends Number> double calculate(T a, T b, Calculator3.OperatorType operatorType) {
+        double result = operatorType.apply(a, b).doubleValue();
         addResult(result);
         return result;
     }
 
-    // 연산 결과를 추가 (Setter)
-    private void addResult(T result) {
+    // 연산 결과 추가
+    private void addResult(double result) {
         results.add(result);
     }
 
-    // 연산 결과를 가져오기 (Getter)
-    public List<T> getResults() {
-        return new ArrayList<>(results); // 캡슐화를 위해 복사본 반환
+    // 연산 결과를 가져오기
+    public List<Double> getResults() {
+        return new ArrayList<>(results);
     }
 
-    // 연산 결과 기록 출력하기
+    // 연산 결과 기록 출력
     public void printResults() {
-        System.out.println("=== 연산 기록 ===");
+        System.out.println("=========== 연산 기록 ===========");
         for (int i = 0; i < results.size(); i++) {
             System.out.println((i + 1) + ". " + results.get(i));
         }
@@ -39,6 +39,22 @@ public class ArithmeticCalculator<T extends Number> {  // T는 Number의 자식 
             results.remove(0);
         } else {
             System.out.println("삭제할 연산 결과가 없습니다.");
+        }
+    }
+
+    // 주어진 값보다 큰 연산 결과들 출력 (람다 & 스트림 사용)
+    public void printResultsGreaterThan(double value) {
+        List<Double> greaterResults = results.stream()
+                .filter(result -> result > value)
+                .collect(Collectors.toList());
+
+        if (greaterResults.isEmpty()) {
+            System.out.println("입력한 값보다 큰 결과는 없습니다.");
+        } else {
+            System.out.println("=== 입력한 값보다 큰 연산 결과들 ===");
+            IntStream.range(0, results.size())
+                    .forEach(i -> System.out.println((i + 1) + ". " + results.get(i)));
+
         }
     }
 }
