@@ -52,8 +52,8 @@ public class ArithmeticCalculator {
             System.out.println("입력한 값보다 큰 결과는 없습니다.");
         } else {
             System.out.println("=== 입력한 값보다 큰 연산 결과들 ===");
-            IntStream.range(0, results.size())
-                    .forEach(i -> System.out.println((i + 1) + ". " + results.get(i)));
+            IntStream.range(0, greaterResults.size())
+                    .forEach(i -> System.out.println((i + 1) + ". " + greaterResults.get(i)));
 
         }
     }
