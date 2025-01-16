@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class ArithmeticCalculator {
+public class ArithmeticCalculator<T extends Number> {
     private final List<Double> results = new ArrayList<>();
 
     // 연산 수행
